@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 from typing import Any
 
-from .ir import GotoFunctionDef, SourceLocation
+from .ir import GotoFunctionDef, SourceLocation, SetReturnValue
 from .parse import load_json, strip_json_ui, dump_json
 from .parse import _run_command as _run_command
 
@@ -149,7 +149,10 @@ def _patch_set_return_value(
             continue
         if not function_def.body:
             raise ValueError("Function body is empty")
-        return_value = function_def.body[0].value.to_json(function_name=function_def.name)
+        first_instr = function_def.body[0]
+        if not isinstance(first_instr, SetReturnValue):
+            raise ValueError("First instruction must be SetReturnValue for return patching")
+        return_value = first_instr.value.to_json(function_name=function_def.name)
         return_code = {
             "id": "code",
             "namedSub": {

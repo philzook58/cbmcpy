@@ -120,7 +120,7 @@ class PyToGoto:
         if name not in self.vars:
             raise ValueError(f"Array '{name}' must be initialized before indexing")
         var = self.vars[name]
-        if not isinstance(var.typ, ArrayType):  # type: ignore[attr-defined]
+        if not isinstance(var.typ, ArrayType):
             raise ValueError(f"Variable '{name}' is not an array")
         return var
 

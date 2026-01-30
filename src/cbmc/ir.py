@@ -814,7 +814,7 @@ def _coerce_other(other: Expr | int | bool, reference: Expr) -> Expr:
     if isinstance(other, bool):
         return Constant("true" if other else "false", BoolType())
     if isinstance(ref_type, Type):
-        return Constant(other, ref_type)  # type: ignore[arg-type]
+        return Constant(other, ref_type)
     return Constant(other, SignedBVType(32))
 
 
