@@ -1,4 +1,4 @@
-cbmc/
+/cbmc/
 goto.md
 example.ipynb
 .venv/

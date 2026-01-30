@@ -26,6 +26,8 @@ jobs:
       - name: Type check
         run: |
           source .venv/bin/activate
+          pwd
+          ls
           uvx ty check src/cbmc tests
       - name: Lint
         run: uvx ruff check
