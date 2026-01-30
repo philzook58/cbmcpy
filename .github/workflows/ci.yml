@@ -32,4 +32,6 @@ jobs:
       - name: Lint
         run: uvx ruff check
       - name: Tests
-        run: .venv/bin/python -m pytest -q
+        run: |
+          source .venv/bin/activate 
+          pytest
