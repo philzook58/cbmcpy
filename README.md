@@ -3,6 +3,7 @@
 Small Python helpers for parsing and generating CBMC / CPROVER JSON UI payloads.
 
 This is an MVP aimed at letting you:
+
 - extract symbol tables and goto-functions from CBMC JSON
 - generate goto programs via a Python builder API
 - re-ingest JSON with `symtab2gb` and run `cbmc`
@@ -13,13 +14,17 @@ is available on your PATH.
 
 ## Install / import
 
-This repo is not packaged on PyPI. Run locally with:
+Install from GitHub with uv:
 
 ```bash
-PYTHONPATH=src python - <<'PY'
+uv pip install git+github.com:philzook58/cbmcpy.git
+```
+
+Run locally with:
+
+```python
 import cbmc
 print(cbmc.__all__)
-PY
 ```
 
 ## Quick start: high-level builder API
@@ -126,8 +131,7 @@ Some tools expect the inner payload directly (for example `symtab2gb`). Use
 
 Example re-ingest flow:
 
-```bash
-PYTHONPATH=src python - <<'PY'
+```python
 from cbmc import load_json, strip_json_ui, dump_json
 
 symtab = strip_json_ui(load_json("outputs/assertions_symbol_table.json"), key="symbolTable")
@@ -135,8 +139,9 @@ funcs = strip_json_ui(load_json("outputs/assertions_goto_functions.json"), key="
 
 dump_json("outputs/assertions_symbol_table_stripped.json", symtab)
 dump_json("outputs/assertions_goto_functions_stripped.json", funcs)
-PY
+```
 
+```bash
 symtab2gb --goto-functions outputs/assertions_goto_functions_stripped.json \
   --out outputs/from_json.gb \
   outputs/assertions_symbol_table_stripped.json
@@ -173,20 +178,24 @@ goto-instrument --show-goto-functions --json-ui outputs/arith.gb > outputs/arith
 ## Commands from --help (selected)
 
 CBMC (`cbmc --help`):
+
 - `--show-properties`, `--show-symbol-table`, `--show-goto-functions`
 - `--trace`, `--stop-on-fail`, `--property <id>`
 - `--export-symex-ready-goto <file>`
 
 Goto-cc (`goto-cc --help`):
+
 - `--function <name>` to set entry point
 - `--native-compiler <cmd>`, `--native-linker <cmd>`
 
 Goto-instrument (`goto-instrument --help`):
+
 - `--show-symbol-table`, `--show-goto-functions`, `--dot`
 - `--list-goto-functions`, `--print-internal-representation`
 - `--validate-goto-model`, `--interpreter`
 
 Symtab2gb (`symtab2gb --help`):
+
 - `--out <file>` to write a goto-binary
 - `--goto-functions <file>` to merge JSON-encoded functions
 
