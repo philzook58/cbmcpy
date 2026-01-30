@@ -16,3 +16,8 @@ extra-paths = ["src"]
 [tool.ruff]
 include = ["src/**/*.py", "tests/**/*.py"]
 exclude = ["cbmc"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
