@@ -1,0 +1,12 @@
+cbmc/
+goto.md
+example.ipynb
+.venv/
+**/__pycache__/**
+*.pyc
+*.pyo
+*.pyd
+.ruff_cache
+-pytest_cache/
+*.egg-info/
+outputs/
