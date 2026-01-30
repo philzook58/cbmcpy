@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = []
 
 [tool.ty.src]
-include = ["src", "tests"]
+include = ["src/cbmc", "tests"]
 exclude = ["cbmc"]
 
 [tool.ty.environment]
