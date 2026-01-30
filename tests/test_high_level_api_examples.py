@@ -11,8 +11,8 @@ sys.path.insert(0, str(SRC_ROOT))
 from cbmc import (
     Signed,
     GotoProgram,
-    assign,
-    assert_,
+    Assign,
+    Assert,
     verify,
     ArrayType,
     Constant,
@@ -38,39 +38,39 @@ class TestHighLevelApiExamples(unittest.TestCase):
         a = _array_var()
 
         passing = [
-            ("x_not_zero", GotoProgram([assign(x, 1), assert_(x != 0)])),
+            ("x_not_zero", GotoProgram([Assign(x, 1), Assert(x != 0)])),
             (
                 "sum_positive",
-                GotoProgram([assign(x, 1), assign(y, 1), assert_(x + y > 0)]),
+                GotoProgram([Assign(x, 1), Assign(y, 1), Assert(x + y > 0)]),
             ),
             (
                 "bool_ops",
                 GotoProgram(
                     [
-                        assign(x, 1),
-                        assign(y, 2),
-                        assert_((x < y) & (y > 0)),
-                        assert_((x < 0) | (y > 0)),
-                        assert_((x == 1) ^ (y == 1)),
-                        assign(x, -x),
-                        assert_(x == -1),
+                        Assign(x, 1),
+                        Assign(y, 2),
+                        Assert((x < y) & (y > 0)),
+                        Assert((x < 0) | (y > 0)),
+                        Assert((x == 1) ^ (y == 1)),
+                        Assign(x, -x),
+                        Assert(x == -1),
                     ]
                 ),
             ),
         ]
 
         failing = [
-            ("x_zero", GotoProgram([assign(x, 0), assert_(x != 0)])),
+            ("x_zero", GotoProgram([Assign(x, 0), Assert(x != 0)])),
             (
                 "sum_nonpositive",
-                GotoProgram([assign(x, -1), assign(y, 0), assert_(x + y > 0)]),
+                GotoProgram([Assign(x, -1), Assign(y, 0), Assert(x + y > 0)]),
             ),
             (
                 "array_oob",
                 GotoProgram(
                     [
-                        assign(a[0], Constant(0, SignedBVType(32))),
-                        assign(a[4], Constant(1, SignedBVType(32))),
+                        Assign(a[0], Constant(0, SignedBVType(32))),
+                        Assign(a[4], Constant(1, SignedBVType(32))),
                     ]
                 ),
             ),

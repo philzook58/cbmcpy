@@ -14,9 +14,18 @@ jobs:
         with:
           python-version: "3.12"
       - uses: astral-sh/setup-uv@v3
+      - name: Install CBMC (Ubuntu)
+        run: |
+          curl -L -o /tmp/cbmc.deb https://github.com/diffblue/cbmc/releases/download/cbmc-6.8.0/ubuntu-24.04-cbmc-6.8.0-Linux.deb
+          sudo dpkg -i /tmp/cbmc.deb || sudo apt-get -f install -y
+      - name: Create venv and install package
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install -e .
       - name: Type check
-        run: uvx ty check
+        run: uvx ty check src tests
       - name: Lint
         run: uvx ruff check
       - name: Tests
-        run: pytest -q
+        run: .venv/bin/python -m pytest -q

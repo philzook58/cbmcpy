@@ -10,6 +10,9 @@ dependencies = []
 include = ["src", "tests"]
 exclude = ["cbmc"]
 
+[tool.ty.environment]
+extra-paths = ["src"]
+
 [tool.ruff]
 include = ["src/**/*.py", "tests/**/*.py"]
 exclude = ["cbmc"]

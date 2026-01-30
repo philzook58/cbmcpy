@@ -11,8 +11,8 @@ from cbmc import (  # noqa: E402
     Signed,
     Constant,
     GotoProgram,
-    assign,
-    assert_,
+    Assign,
+    Assert,
     verify,
     Decl,
     Goto,
@@ -49,7 +49,7 @@ class TestExamplesBuilderIr(unittest.TestCase):
 
     def _arith_example(self) -> None:
         x = Signed("x", 32)
-        prog = GotoProgram([assign(x, 1 + 2), assert_(x == 3)])
+        prog = GotoProgram([Assign(x, 1 + 2), Assert(x == 3)])
         result = verify(prog, show_output=False)
         self.assertEqual(result.returncode, 0)
 
@@ -62,11 +62,11 @@ class TestExamplesBuilderIr(unittest.TestCase):
 
         body = [
             Decl(symbol=a),
-            assign(a[0], Constant(0, int32)),
-            assign(a[1], Constant(1, int32)),
-            assign(a[2], Constant(2, int32)),
-            assign(a[3], Constant(3, int32)),
-            assert_(a[3] != Constant(3, int32)),
+            Assign(a[0], Constant(0, int32)),
+            Assign(a[1], Constant(1, int32)),
+            Assign(a[2], Constant(2, int32)),
+            Assign(a[3], Constant(3, int32)),
+            Assert(a[3] != Constant(3, int32)),
         ]
         prog = GotoProgram(body)
         result = verify(prog, show_output=False)
@@ -82,18 +82,18 @@ class TestExamplesBuilderIr(unittest.TestCase):
             Decl(symbol=total, location_number=1),
             Decl(symbol=i, location_number=2),
             Decl(symbol=n, location_number=3),
-            assign(n, Constant(4, int32)),
-            assign(total, Constant(0, int32)),
-            assign(i, Constant(1, int32)),
+            Assign(n, Constant(4, int32)),
+            Assign(total, Constant(0, int32)),
+            Assign(i, Constant(1, int32)),
             Goto(guard=Not(i <= n), targets=[11], location_number=7),
-            assign(total, total + i),
-            assign(i, i + Constant(1, int32)),
+            Assign(total, total + i),
+            Assign(i, i + Constant(1, int32)),
             Goto(
                 guard=(Constant(0, int32) != Constant(1, int32)),
                 targets=[7],
                 location_number=10,
             ),
-            assert_(Not(total != Constant(10, int32))),
+            Assert(Not(total != Constant(10, int32))),
             SetReturnValue(value=Constant(0, int32), location_number=12),
             EndFunction(location_number=13),
         ]
@@ -149,20 +149,20 @@ class TestExamplesBuilderIr(unittest.TestCase):
             Decl(symbol=src, location_number=1),
             Decl(symbol=dest, location_number=2),
             Decl(symbol=i, location_number=3),
-            assign(src[0], Constant(1, byte)),
-            assign(src[1], Constant(2, byte)),
-            assign(src[2], Constant(3, byte)),
-            assign(src[3], Constant(4, byte)),
-            assign(i, Constant(0, int32)),
+            Assign(src[0], Constant(1, byte)),
+            Assign(src[1], Constant(2, byte)),
+            Assign(src[2], Constant(3, byte)),
+            Assign(src[3], Constant(4, byte)),
+            Assign(i, Constant(0, int32)),
             Goto(guard=Not(i < Constant(4, int32)), targets=[13], location_number=9),
-            assign(IndexExpr(dest, i, byte), IndexExpr(src, i, byte)),
-            assign(i, i + Constant(1, int32)),
+            Assign(IndexExpr(dest, i, byte), IndexExpr(src, i, byte)),
+            Assign(i, i + Constant(1, int32)),
             Goto(
                 guard=(Constant(0, int32) != Constant(1, int32)),
                 targets=[9],
                 location_number=12,
             ),
-            assert_(IndexExpr(dest, Constant(3, index_type), byte) != Constant(4, byte)),
+            Assert(IndexExpr(dest, Constant(3, index_type), byte) != Constant(4, byte)),
             SetReturnValue(value=Constant(0, int32)),
             EndFunction(),
         ]
@@ -181,9 +181,9 @@ class TestExamplesBuilderIr(unittest.TestCase):
 
         swap_body = [
             Decl(symbol=tmp),
-            assign(tmp, Dereference(src_param, int32)),
-            assign(Dereference(src_param, int32), Dereference(dst_param, int32)),
-            assign(Dereference(dst_param, int32), tmp),
+            Assign(tmp, Dereference(src_param, int32)),
+            Assign(Dereference(src_param, int32), Dereference(dst_param, int32)),
+            Assign(Dereference(dst_param, int32), tmp),
             SetReturnValue(value=Constant(0, int32)),
             EndFunction(),
         ]
@@ -202,10 +202,10 @@ class TestExamplesBuilderIr(unittest.TestCase):
         main_body = [
             Decl(symbol=x),
             Decl(symbol=y),
-            assign(x, Constant(1, int32)),
-            assign(y, Constant(2, int32)),
+            Assign(x, Constant(1, int32)),
+            Assign(y, Constant(2, int32)),
             FunctionCall(function=swap_sym, args=[AddressOf(x, int_ptr), AddressOf(x, int_ptr)], lhs=None),
-            assert_(x == Constant(2, int32)),
+            Assert(x == Constant(2, int32)),
             SetReturnValue(value=Constant(0, int32)),
             EndFunction(),
         ]

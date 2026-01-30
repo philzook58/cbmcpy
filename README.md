@@ -1,4 +1,4 @@
-# cbmc-json
+# cbmcpy
 
 Small Python helpers for parsing and generating CBMC / CPROVER JSON UI payloads.
 
@@ -20,13 +20,6 @@ Install from GitHub with uv:
 uv pip install git+github.com:philzook58/cbmcpy.git
 ```
 
-Run locally with:
-
-```python
-import cbmc
-print(cbmc.__all__)
-```
-
 ## Quick start: high-level builder API
 
 This example builds a tiny program, runs CBMC, and prints a counterexample:
@@ -35,9 +28,9 @@ This example builds a tiny program, runs CBMC, and prints a counterexample:
 from cbmc import *
 
 x = Signed("x", 64)
-prog = GotoProgram([assign(x, 0), assert_(x != 0)])
+prog = GotoProgram([Assign(x, 0), Assert(x != 0)])
 
-verify(prog)  # prints CBMC output + trace
+verify(prog, show_output=True)  # prints CBMC output + trace
 ```
 
 ## Ergonomic builder helpers
@@ -50,13 +43,13 @@ from cbmc import *
 x = Signed("x", 32)
 y = Signed("y", 32)
 
-assert_( (x < y) & (y > 0) )
-assert_( (x < 0) | (y > 0) )
-assert_( (x == 1) ^ (y == 1) )   # boolean xor
-assign(x, -x)                    # unary minus
+Assert( (x < y) & (y > 0) )
+Assert( (x < 0) | (y > 0) )
+Assert( (x == 1) ^ (y == 1) )   # boolean xor
+Assign(x, -x)                    # unary minus
 
 arr = Array("a", SignedBVType(32), 4)
-assign(arr[0], Constant(1, SignedBVType(32)))
+Assign(arr[0], Constant(1, SignedBVType(32)))
 ```
 
 ## Example: explicit loop blocks (for-loop)
@@ -74,14 +67,14 @@ body = [
     Decl(symbol=total, location_number=1),
     Decl(symbol=i, location_number=2),
     Decl(symbol=n, location_number=3),
-    assign(n, Constant(4, i.typ)),
-    assign(total, Constant(0, i.typ)),
-    assign(i, Constant(1, i.typ)),
+    Assign(n, Constant(4, i.typ)),
+    Assign(total, Constant(0, i.typ)),
+    Assign(i, Constant(1, i.typ)),
     Goto(guard=Not(i <= n), targets=[11], location_number=7),
-    assign(total, total + i),
-    assign(i, i + Constant(1, i.typ)),
+    Assign(total, total + i),
+    Assign(i, i + Constant(1, i.typ)),
     Goto(guard=(Constant(0, i.typ) != Constant(1, i.typ)), targets=[7], location_number=10),
-    assert_(Not(total != Constant(10, i.typ))),  # 1+2+3+4 == 10
+    Assert(Not(total != Constant(10, i.typ))),  # 1+2+3+4 == 10
     SetReturnValue(value=Constant(0, i.typ), location_number=12),
     EndFunction(location_number=13),
 ]
