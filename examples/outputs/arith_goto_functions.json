@@ -1,0 +1,1300 @@
+[
+  {
+    "program": "goto-instrument"
+  },
+  {
+    "messageText": "Reading GOTO program from 'examples/outputs/arith.gb'",
+    "messageType": "STATUS-MESSAGE"
+  },
+  {
+    "functions": [
+      {
+        "instructions": [
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "skip"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              }
+            },
+            "instruction": "        // 9 no location\n        // Labels: __CPROVER_HIDE\n        SKIP\n",
+            "instructionId": "SKIP",
+            "labels": [ "__CPROVER_HIDE" ],
+            "locationNumber": 9
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "function_call"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "nil"
+                },
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_initialize"
+                    },
+                    "type": {
+                      "id": "code",
+                      "namedSub": {
+                        "parameters": {
+                          "id": ""
+                        },
+                        "return_type": {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "arguments"
+                }
+              ]
+            },
+            "instruction": "        // 10 file <built-in-additions> line 26\n        CALL __CPROVER_initialize()\n",
+            "instructionId": "FUNCTION_CALL",
+            "locationNumber": 10,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "26",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "function_call"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "return'"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main"
+                    },
+                    "type": {
+                      "id": "code",
+                      "namedSub": {
+                        "parameters": {
+                          "id": ""
+                        },
+                        "return_type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "arguments"
+                }
+              ]
+            },
+            "instruction": "        // 11 file examples/arith.c line 6\n        CALL return' := main()\n",
+            "instructionId": "FUNCTION_CALL",
+            "locationNumber": 11,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "line": "6",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "output"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "address_of",
+                  "namedSub": {
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "sub": [
+                    {
+                      "id": "index",
+                      "namedSub": {
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "8"
+                            }
+                          }
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "string_constant",
+                          "namedSub": {
+                            "type": {
+                              "id": "array",
+                              "namedSub": {
+                                "size": {
+                                  "id": "constant",
+                                  "namedSub": {
+                                    "type": {
+                                      "id": "signedbv",
+                                      "namedSub": {
+                                        "width": {
+                                          "id": "64"
+                                        }
+                                      }
+                                    },
+                                    "value": {
+                                      "id": "8"
+                                    }
+                                  }
+                                }
+                              },
+                              "sub": [
+                                {
+                                  "id": "signedbv",
+                                  "namedSub": {
+                                    "width": {
+                                      "id": "8"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "value": {
+                              "id": "return'"
+                            }
+                          }
+                        },
+                        {
+                          "id": "constant",
+                          "namedSub": {
+                            "type": {
+                              "id": "signedbv",
+                              "namedSub": {
+                                "width": {
+                                  "id": "64"
+                                }
+                              }
+                            },
+                            "value": {
+                              "id": "0"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "return'"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 12 file examples/arith.c line 6\n        OUTPUT address_of(\"return'\"[0])\n",
+            "instructionId": "OTHER",
+            "locationNumber": 12,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "line": "6",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "instruction": "        // 13 no location\n        END_FUNCTION\n",
+            "instructionId": "END_FUNCTION",
+            "locationNumber": 13
+          }
+        ],
+        "isBodyAvailable": true,
+        "isHidden": true,
+        "isInternal": true,
+        "name": "__CPROVER__start",
+        "parameterIdentifiers": [ ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_assignable",
+        "parameterIdentifiers": [ "", "", "" ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_freeable",
+        "parameterIdentifiers": [ "" ]
+      },
+      {
+        "instructions": [
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "skip"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              }
+            },
+            "instruction": "        // 17 no location\n        // Labels: __CPROVER_HIDE\n        SKIP\n",
+            "instructionId": "SKIP",
+            "labels": [ "__CPROVER_HIDE" ],
+            "locationNumber": 17
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_dead_object"
+                    },
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "constant",
+                  "namedSub": {
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    },
+                    "value": {
+                      "id": "NULL"
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 18 file <built-in-additions> line 10\n        ASSIGN __CPROVER_dead_object := NULL\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 18,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "10",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_deallocated"
+                    },
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "constant",
+                  "namedSub": {
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    },
+                    "value": {
+                      "id": "NULL"
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 19 file <built-in-additions> line 9\n        ASSIGN __CPROVER_deallocated := NULL\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 19,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "9",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_max_malloc_size"
+                    },
+                    "type": {
+                      "id": "unsignedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "constant",
+                  "namedSub": {
+                    "type": {
+                      "id": "unsignedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      }
+                    },
+                    "value": {
+                      "id": "80000000000000"
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 20 file <built-in-additions> line 14\n        ASSIGN __CPROVER_max_malloc_size := 36028797018963968\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 20,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "14",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_memory_leak"
+                    },
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "constant",
+                  "namedSub": {
+                    "type": {
+                      "id": "pointer",
+                      "namedSub": {
+                        "width": {
+                          "id": "64"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "empty",
+                          "namedSub": {}
+                        }
+                      ]
+                    },
+                    "value": {
+                      "id": "NULL"
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 21 file <built-in-additions> line 11\n        ASSIGN __CPROVER_memory_leak := NULL\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 21,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "11",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "__CPROVER_rounding_mode"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "constant",
+                  "namedSub": {
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    },
+                    "value": {
+                      "id": "0"
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 22 file <built-in-additions> line 18\n        ASSIGN __CPROVER_rounding_mode := 0\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 22,
+            "sourceLocation": {
+              "file": "<built-in-additions>",
+              "line": "18",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "instruction": "        // 23 no location\n        END_FUNCTION\n",
+            "instructionId": "END_FUNCTION",
+            "locationNumber": 23
+          }
+        ],
+        "isBodyAvailable": true,
+        "isHidden": true,
+        "isInternal": true,
+        "name": "__CPROVER_initialize",
+        "parameterIdentifiers": [ ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_is_freeable",
+        "parameterIdentifiers": [ "" ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_object_from",
+        "parameterIdentifiers": [ "" ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_object_upto",
+        "parameterIdentifiers": [ "", "" ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_object_whole",
+        "parameterIdentifiers": [ "" ]
+      },
+      {
+        "isBodyAvailable": false,
+        "isHidden": false,
+        "isInternal": true,
+        "name": "__CPROVER_was_freed",
+        "parameterIdentifiers": [ "" ]
+      },
+      {
+        "instructions": [
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "return"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "+",
+                  "namedSub": {
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  },
+                  "sub": [
+                    {
+                      "id": "symbol",
+                      "namedSub": {
+                        "identifier": {
+                          "id": "add::a"
+                        },
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "symbol",
+                      "namedSub": {
+                        "identifier": {
+                          "id": "add::b"
+                        },
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "instruction": "        // 14 file examples/arith.c line 3 function add\n        SET RETURN VALUE add::a + add::b\n",
+            "instructionId": "SET_RETURN_VALUE",
+            "locationNumber": 14,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "add",
+              "line": "3",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "guard": {
+              "id": "constant",
+              "namedSub": {
+                "type": {
+                  "id": "bool"
+                },
+                "value": {
+                  "id": "true"
+                }
+              }
+            },
+            "instruction": "        // 15 file examples/arith.c line 3 function add\n        GOTO 1\n",
+            "instructionId": "GOTO",
+            "locationNumber": 15,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "add",
+              "line": "3",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            },
+            "targets": [ 16 ]
+          },
+          {
+            "instruction": "        // 16 file examples/arith.c line 4 function add\n     1: END_FUNCTION\n",
+            "instructionId": "END_FUNCTION",
+            "locationNumber": 16,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "add",
+              "line": "4",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          }
+        ],
+        "isBodyAvailable": true,
+        "isHidden": false,
+        "isInternal": false,
+        "name": "add",
+        "parameterIdentifiers": [ "add::a", "add::b" ]
+      },
+      {
+        "instructions": [
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "decl"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::1::x"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 0 file examples/arith.c line 8 function main\n        DECL main::1::x : signedbv[32]\n",
+            "instructionId": "DECL",
+            "locationNumber": 0,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "hide": true,
+              "line": "8",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "decl"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::$tmp::return_value_add"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 1 file examples/arith.c line 8 function main\n        DECL main::$tmp::return_value_add : signedbv[32]\n",
+            "instructionId": "DECL",
+            "locationNumber": 1,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "8",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "function_call"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::$tmp::return_value_add"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "add"
+                    },
+                    "type": {
+                      "id": "code",
+                      "namedSub": {
+                        "parameters": {
+                          "id": "",
+                          "sub": [
+                            {
+                              "id": "parameter",
+                              "namedSub": {
+                                "type": {
+                                  "id": "signedbv",
+                                  "namedSub": {
+                                    "width": {
+                                      "id": "32"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "id": "parameter",
+                              "namedSub": {
+                                "type": {
+                                  "id": "signedbv",
+                                  "namedSub": {
+                                    "width": {
+                                      "id": "32"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "return_type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "arguments",
+                  "sub": [
+                    {
+                      "id": "constant",
+                      "namedSub": {
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        },
+                        "value": {
+                          "id": "1"
+                        }
+                      }
+                    },
+                    {
+                      "id": "constant",
+                      "namedSub": {
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        },
+                        "value": {
+                          "id": "2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "instruction": "        // 2 file examples/arith.c line 8 function main\n        CALL main::$tmp::return_value_add := add(1, 2)\n",
+            "instructionId": "FUNCTION_CALL",
+            "locationNumber": 2,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "8",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "assign"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::1::x"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::$tmp::return_value_add"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 3 file examples/arith.c line 8 function main\n        ASSIGN main::1::x := main::$tmp::return_value_add\n",
+            "instructionId": "ASSIGN",
+            "locationNumber": 3,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "8",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "dead"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::$tmp::return_value_add"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 4 file examples/arith.c line 8 function main\n        DEAD main::$tmp::return_value_add\n",
+            "instructionId": "DEAD",
+            "locationNumber": 4,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "8",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "return"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "if",
+                  "namedSub": {
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  },
+                  "sub": [
+                    {
+                      "id": "=",
+                      "namedSub": {
+                        "type": {
+                          "id": "bool"
+                        }
+                      },
+                      "sub": [
+                        {
+                          "id": "symbol",
+                          "namedSub": {
+                            "identifier": {
+                              "id": "main::1::x"
+                            },
+                            "type": {
+                              "id": "signedbv",
+                              "namedSub": {
+                                "width": {
+                                  "id": "32"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "id": "constant",
+                          "namedSub": {
+                            "type": {
+                              "id": "signedbv",
+                              "namedSub": {
+                                "width": {
+                                  "id": "32"
+                                }
+                              }
+                            },
+                            "value": {
+                              "id": "3"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "id": "constant",
+                      "namedSub": {
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        },
+                        "value": {
+                          "id": "0"
+                        }
+                      }
+                    },
+                    {
+                      "id": "constant",
+                      "namedSub": {
+                        "type": {
+                          "id": "signedbv",
+                          "namedSub": {
+                            "width": {
+                              "id": "32"
+                            }
+                          }
+                        },
+                        "value": {
+                          "id": "1"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "instruction": "        // 5 file examples/arith.c line 9 function main\n        SET RETURN VALUE (main::1::x = 3 ? 0 : 1)\n",
+            "instructionId": "SET_RETURN_VALUE",
+            "locationNumber": 5,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "9",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "code": {
+              "id": "code",
+              "namedSub": {
+                "statement": {
+                  "id": "dead"
+                },
+                "type": {
+                  "id": "empty"
+                }
+              },
+              "sub": [
+                {
+                  "id": "symbol",
+                  "namedSub": {
+                    "identifier": {
+                      "id": "main::1::x"
+                    },
+                    "type": {
+                      "id": "signedbv",
+                      "namedSub": {
+                        "width": {
+                          "id": "32"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "instruction": "        // 6 file examples/arith.c line 9 function main\n        DEAD main::1::x\n",
+            "instructionId": "DEAD",
+            "locationNumber": 6,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "9",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          },
+          {
+            "guard": {
+              "id": "constant",
+              "namedSub": {
+                "type": {
+                  "id": "bool"
+                },
+                "value": {
+                  "id": "true"
+                }
+              }
+            },
+            "instruction": "        // 7 file examples/arith.c line 9 function main\n        GOTO 1\n",
+            "instructionId": "GOTO",
+            "locationNumber": 7,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "9",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            },
+            "targets": [ 8 ]
+          },
+          {
+            "instruction": "        // 8 file examples/arith.c line 10 function main\n     1: END_FUNCTION\n",
+            "instructionId": "END_FUNCTION",
+            "locationNumber": 8,
+            "sourceLocation": {
+              "file": "examples/arith.c",
+              "function": "main",
+              "line": "10",
+              "workingDirectory": "/home/philip/vibe_coding/cbmc_json3"
+            }
+          }
+        ],
+        "isBodyAvailable": true,
+        "isHidden": false,
+        "isInternal": false,
+        "name": "main",
+        "parameterIdentifiers": [ ]
+      }
+    ]
+  }
+]
