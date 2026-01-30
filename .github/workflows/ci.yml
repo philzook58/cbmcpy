@@ -20,11 +20,13 @@ jobs:
           sudo dpkg -i /tmp/cbmc.deb || sudo apt-get -f install -y
       - name: Create venv and install package
         run: |
-          python -m venv .venv
+          uv venv
           . .venv/bin/activate
           pip install -e .
       - name: Type check
-        run: uvx ty check
+        run: |
+          source .venv/bin/activate
+          uvx ty check
       - name: Lint
         run: uvx ruff check
       - name: Tests
