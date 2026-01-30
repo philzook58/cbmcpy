@@ -1,6 +1,6 @@
 # cbmcpy
 
-Small Python helpers for parsing and generating CBMC / CPROVER JSON UI payloads.
+Small Python helpers for parsing and generating [CBMC](https://github.com/diffblue/cbmc) / CPROVER JSON UI payloads.
 
 This is an MVP aimed at letting you:
 

@@ -24,7 +24,7 @@ jobs:
           . .venv/bin/activate
           pip install -e .
       - name: Type check
-        run: uvx ty check src tests
+        run: uvx ty check
       - name: Lint
         run: uvx ruff check
       - name: Tests
